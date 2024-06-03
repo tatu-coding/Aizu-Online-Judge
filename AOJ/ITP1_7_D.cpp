@@ -27,7 +27,7 @@ int main() {
                 if (k > 0) {
                 cout << " ";
                 }
-                detC[i][j] += detA[i][k]*detB[k][l];
+                detC[i][j] += detA[i][k]*detB[k][j];
             }
             cout << detC[i][j] << endl;
         }
