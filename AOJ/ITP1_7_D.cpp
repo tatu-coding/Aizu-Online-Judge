@@ -5,9 +5,9 @@ int main() {
     int n, m, l;
     cin >> n >> m >> l;
 
-    int detA[n][m];
-    int detB[m][l];
-    int detC[n][l];
+    long long detA[n][m] = {};
+    long long detB[m][l] = {};
+    long long detC[n][l] = {};
 
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
@@ -24,12 +24,18 @@ int main() {
     for (int i = 0; i < n; i++){
         for (int j = 0; j < l; j++){
             for (int k = 0; k < m; k++){
-                if (k > 0) {
-                cout << " ";
-                }
-                detC[i][j] += detA[i][k]*detB[k][l];
+                detC[i][j] += detA[i][k]*detB[k][j];
             }
-            cout << detC[i][j] << endl;
         }
+    }
+
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < l; j++){
+            if (j > 0) {
+                cout << " ";
+            }
+            cout << detC[i][j];
+        }
+        cout << endl;
     }
 }
